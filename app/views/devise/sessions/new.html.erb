@@ -1,17 +1,44 @@
-<h2>Sign in</h2>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well bs-component">
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>ログイン</legend>
+          <div class="row form-group">
+            <label for="inputEmail" class="col-lg-3 control-label"><%= f.label :メールアドレス %></label>
+            <div class="col-lg-9">
+              <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "example@catal.jp" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <label for="inputPassword" class="col-lg-3 control-label"><%= f.label :パスワード %></label>
+            <div class="col-lg-9">
+              <%= f.password_field :password, :class => "form-control", :placeholder => "*****" %>
+              <div class="checkbox">
+                <label>
+                  <% if devise_mapping.rememberable? -%>
+                    <%= f.check_box :remember_me, :class => "form-cotrol" %> <%= f.label :パスワードを保存する %>
+                  <% end -%>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-lg-9 col-lg-offset-3">
+              <%= f.submit "ログイン", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
 <% end %>
 
+<hr>
+
 <%= render "devise/shared/links" %>
+
