@@ -1,5 +1,19 @@
 source 'https://rubygems.org'
 
+#WYSIWYGエディタ
+gem 'ckeditor'
+
+group :development do
+  gem 'awesome_print'
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'quiet_assets'
+  #modelの図を自動生成
+  gem 'rails-erd'
+end
 #twitter bootflat
 gem 'twitter-bootswatch-rails', '~> 3.1.1'
 gem 'twitter-bootswatch-rails-helpers'

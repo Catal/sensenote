@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor/init
 //= require lumen/loader
 //= require lumen/bootswatch
 //= require turbolinks
