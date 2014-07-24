@@ -15,5 +15,6 @@
 //= require ckeditor/init
 //= require lumen/loader
 //= require lumen/bootswatch
+//= require bootstrap
 //= require turbolinks
 

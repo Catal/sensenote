@@ -1,48 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sensenote</title>
+  <title>SenseNote</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div id="wrapper">
-    <% if user_signed_in? %>
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand">
-                <a href="#">
-                    SenseNote
-                </a>
-            </li>
-            <li>
-                <a href="#">Dashboard</a>
-            </li>
-            <li>
-                <a href="#">Shortcuts</a>
-            </li>
-            <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
-            </li>
-        </ul>
-    </div>
-    <!-- /#sidebar-wrapper -->
-    <% end %>
+  
   <!-- Fixed navbar -->
   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -76,37 +41,72 @@
     </div>
   </div> -->
 
-  <div id="page-content-wrapper">
-  <div class="row"> 
-    <div class="col-lg-6">
-      <% if notice %>
-        <div class="alert alert-dismissable alert-info">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <%= notice %>
-        </div>
-      <% end %>
-
-      <% if alert %>
-        <div class="alert alert-dismissable alert-warning">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <%= alert %>
-        </div>
-      <% end %>
+  <div id="wrapper">
+    <% if user_signed_in? %>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+              <a href="http://0.0.0.0:3000/notes">
+                  SenseNote
+              </a>
+            </li>
+            <li>
+              <a href="#">Dashboard</a>
+            </li>
+            <li>
+              <a href="#">Shortcuts</a>
+            </li>
+            <li>
+              <a href="#">Overview</a>
+            </li>
+            <li>
+              <a href="#">Events</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Services</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+        </ul>
     </div>
-  </div>
-  <div>
     
+    <!-- /#sidebar-wrapper -->
+    <% end %>
+
+    <div id="page-content-wrapper">
+      <div class="row"> 
+        <div class="col-lg-6">
+          <% if notice %>
+            <div class="alert alert-dismissable alert-info">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <%= notice %>
+            </div>
+          <% end %>
+
+          <% if alert %>
+            <div class="alert alert-dismissable alert-warning">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <%= alert %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <div>
+      
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <%= yield %>
+        </div><!--/row-->
+      </div><!-- /container-fluid -->
+    </div><!-- /page-content-wrapper -->
+
   </div><!-- wrapper -->
-
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <div class="row">
-        <%= yield %>
-      </div><!--/row-->
-    </div><!-- /container-fluid -->
-  </div><!-- /page-content-wrapper -->
-
-</div><!-- wrapper -->
 
 
 </body>
