@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1><%= 'Listing '+ @group.name + ' members'%></h1>
+<h1><%= @group.name + ' members'%></h1>
 <% @group.users.each do |member| %>
   <tr>
     <td><%= member.email %></td>
