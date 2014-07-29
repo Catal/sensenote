@@ -3,16 +3,22 @@
   <div class="col-md-6">
     <p>
       <strong>Title:</strong>
-      <%= @note.title %>
+      <div class="well">
+        <%= @note.title %>
+      </div>
     </p>
     <p>
       <strong>Body:</strong>
-      <%= raw @note.body %>
+      <div class="well">
+        <%= raw @note.body %>
+      </div>
     </p>
 
     <p>
       <strong>Date:</strong>
-      <%= @note.date %>
+      <div class="well">
+        <%= @note.date %>
+      </div>
     </p>
   </div>
 </div>
