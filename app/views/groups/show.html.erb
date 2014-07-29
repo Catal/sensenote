@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @group.name + ' members'%></h1>
-<% @group.users.each do |member| %>
-  <tr>
-    <td><%= member.email %></td>
-  </tr>
-<% end %>
-
+<div class="row">
+  <div class="col-md-6">
+    <% @group.users.each do |member| %>
+      <tr>
+        <h3>Members</h3>
+        <div class="well">
+          <td><%= link_to member.email, rails_admin_path %></td>
+        </div>
+      </tr>
+    <% end %>
+  </div>
+</div>
 <br>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |
