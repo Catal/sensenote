@@ -16,4 +16,6 @@
  *= require lumen/bootswatch
  *= require sidebar
  *= require custom
+ *= require nprogress
+ *= require nprogress-bootstrap
  */

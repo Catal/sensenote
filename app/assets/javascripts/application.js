@@ -17,4 +17,5 @@
 //= require lumen/bootswatch
 //= require bootstrap
 //= require turbolinks
-
+//= require nprogress
+//= require nprogress-turbolinks

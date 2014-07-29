@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #WYSIWYGエディタ
 gem 'ckeditor'
+#youtube-likeなプログレスバー
+gem 'nprogress-rails'
 
 group :development do
   gem 'awesome_print'
