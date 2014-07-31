@@ -29,3 +29,9 @@
 <%= link_to 'New Note', new_note_path %>
 
 <p><a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
