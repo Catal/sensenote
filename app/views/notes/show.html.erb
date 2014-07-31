@@ -10,7 +10,7 @@
     <p>
       <strong>Body:</strong>
       <div class="well">
-        <%= raw @note.body %>
+        <%= @note.body.html_safe %>
       </div>
     </p>
 
