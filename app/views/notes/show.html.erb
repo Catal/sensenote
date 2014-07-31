@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+    <p>
+      <strong>Title:</strong>
+      <div class="well">
+        <%= @note.title %>
+      </div>
+    </p>
+    <p>
+      <strong>Body:</strong>
+      <div class="well">
+        <%= raw @note.body %>
+      </div>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @note.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @note.body %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @note.date %>
-</p>
-
+    <p>
+      <strong>Date:</strong>
+      <div class="well">
+        <%= @note.date %>
+      </div>
+    </p>
+  </div>
+</div>
 <%= link_to 'Edit', edit_note_path(@note) %> |
 <%= link_to 'Back', notes_path %>

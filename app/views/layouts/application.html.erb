@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <!-- Fixed navbar -->
   <!-- <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -47,15 +47,16 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-              <a href="http://0.0.0.0:3000/notes">
-                  SenseNote
-              </a>
+              <%= link_to 'SenseNote', notes_path %>
             </li>
             <li>
               <a href="#">Dashboard</a>
             </li>
             <li>
               <a href="#">Shortcuts</a>
+            </li>
+            <li>
+              <%= link_to 'Groups', groups_path %>
             </li>
             <li>
               <a href="#">Overview</a>
@@ -74,12 +75,12 @@
             </li>
         </ul>
     </div>
-    
+
     <!-- /#sidebar-wrapper -->
     <% end %>
 
     <div id="page-content-wrapper">
-      <div class="row"> 
+      <div class="row">
         <div class="col-lg-6">
           <% if notice %>
             <div class="alert alert-dismissable alert-info">
@@ -97,7 +98,7 @@
         </div>
       </div>
     <div>
-      
+
     <div id="page-content-wrapper">
       <div class="container-fluid">
         <div class="row">
@@ -110,7 +111,7 @@
 
 
 </body>
-   
+
   <p class="navbar-text pull-right">
   <% if user_signed_in? %>
     Logged in as <strong><%= current_user.email %></strong>.
