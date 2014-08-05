@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'ckeditor'
 #youtube-likeなプログレスバー
 gem 'nprogress-rails'
+#ダイナミックなselect box select2
+gem 'select2-rails'
 
 group :development do
   gem 'awesome_print'
