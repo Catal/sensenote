@@ -1,5 +1,4 @@
 <script>
-  var ids = [];
   $(document).ready(function()
       {
         $('#group_user_ids').select2(
@@ -10,14 +9,6 @@
         );
       }
   );
-
-  function selectedUser()
-  {
-    var obj = document.getElementById("select2");
-    var id = obj.options[obj.selectedIndex].value;
-    ids.push(id);
-    document.getElementById("text").innerHTML = "<h3>" + ids + "</h3>";
-  }
 </script>
 
 <%= form_for(@group) do |f| %>
