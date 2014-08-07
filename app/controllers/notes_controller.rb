@@ -12,6 +12,17 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
+    @short_titles_bodies = Note.all
+
+    @short_titles_bodies.each do |short_title_body|
+      if short_title_body.title.length > 36
+        short_title_body.title = short_title_body.title[0,35]
+      end
+      if short_title_body.body.length > 19
+        short_title_body.body = short_title_body.body[0,18]
+      end
+    end
+
   end
 
   # GET /notes/new

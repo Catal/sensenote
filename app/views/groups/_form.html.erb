@@ -1,3 +1,25 @@
+<script>
+  var ids = [];
+  $(document).ready(function()
+      {
+        $('#group_user_ids').select2(
+          {
+            minimumInputLength: 1,
+            placeholder: "メンバーを検索してください"
+          }
+        );
+      }
+  );
+
+  function selectedUser()
+  {
+    var obj = document.getElementById("select2");
+    var id = obj.options[obj.selectedIndex].value;
+    ids.push(id);
+    document.getElementById("text").innerHTML = "<h3>" + ids + "</h3>";
+  }
+</script>
+
 <%= form_for(@group) do |f| %>
   <% if @group.errors.any? %>
     <div id="error_explanation">
@@ -22,6 +44,9 @@
   <div class="row">
     <div class="col-md-6">
       <h3><%= f.label :"グループメンバー" %></h3>
+      <%= f.select :user_ids, User.all.collect {|u| [u.email, u.id]}, {}, multiple: true %>
+
+
     </div>
   </div>
   <br>

@@ -1,6 +1,58 @@
 <h1>Editing group</h1>
 
-<%= render 'form' %>
+<script>
+  var ids = [];
+  $(document).ready(function()
+      {
+        $('#group_user_ids').select2(
+          {
+            minimumInputLength: 1,
+            placeholder: "メンバーを検索してください"
+          }
+        );
+      }
+  );
+
+</script>
+
+<%= form_for(@group) do |f| %>
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% @group.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3><%= f.label :"グループ名" %></h3>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3><%= f.label :"グループメンバー" %></h3>
+      <%= f.select :user_ids, User.all.collect {|u| [u.email, u.id]}, {}, multiple: true %>
+
+
+    </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.submit "作成", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
 
 <%= link_to 'Show', @group %> |
 <%= link_to 'Back', groups_path %>

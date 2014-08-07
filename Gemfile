@@ -7,6 +7,8 @@ gem 'mini_magick'
 gem 'ckeditor'
 #youtube-likeなプログレスバー
 gem 'nprogress-rails'
+#ダイナミックなselect box select2
+gem 'select2-rails'
 
 group :development do
   gem 'awesome_print'
