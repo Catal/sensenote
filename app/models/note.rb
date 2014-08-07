@@ -4,7 +4,7 @@ class Note < ActiveRecord::Base
     if search.blank?
       Note.all
     else
-      Note.where(['title LIKE ? OR body LIKE ?', "%#{search}%"])
+      Note.where(['title LIKE ? OR body LIKE ?', "%#{search}%","%#{search}%"])
     end
   end
 

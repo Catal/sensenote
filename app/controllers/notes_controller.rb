@@ -6,6 +6,7 @@ class NotesController < ApplicationController
   def index
     #@notes = Note.all
     @notes = Note.search(params[:search])
+    @panel = ["panel panel-primary", "panel panel-success", "panel panel-info", "panel panel-warning", "panel panel-danger", "panel panel-default"]
   end
 
   # GET /notes/1
