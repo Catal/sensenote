@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'
 #WYSIWYGエディタ
 gem 'ckeditor'
 #youtube-likeなプログレスバー
