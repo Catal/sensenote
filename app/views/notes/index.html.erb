@@ -1,5 +1,18 @@
 <h1>Listing notes</h1>
 
+
+<div class="row">
+  <% @short_titles_bodies.each do |note|%>
+    <div class="col-md-3">
+      <%= note.title %>
+      <div class="jumbotron">
+        <%= note.body.html_safe %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+    <!--
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -12,6 +25,7 @@
 
   <tbody>
     <% @notes.each do |note| %>
+
       <tr>
         <td><%= note.title %></td>
         <td><%= raw(note.body) %></td>
@@ -23,8 +37,8 @@
     <% end %>
   </tbody>
 </table>
+    -->
 
 <br>
-
 <p><%= link_to '新規作成', new_note_path, :class => "btn btn-primary" %></p>
 
