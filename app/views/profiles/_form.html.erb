@@ -1,0 +1,35 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= image_tag(@profile.avatar_url)%>
+      <%= f.file_field :img_dir %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h3><%= f.label :name %></h3>
+      <%= f.text_field :name, class: "form-control"%>
+    </div>
+  </div>
+
+
+  <br>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
