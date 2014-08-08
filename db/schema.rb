@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807154446) do
+ActiveRecord::Schema.define(version: 20140808102846) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140807154446) do
 
   create_table "profiles", force: true do |t|
     t.string   "name"
-    t.string   "image_dir"
+    t.string   "avatar"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
