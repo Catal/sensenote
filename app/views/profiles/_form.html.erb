@@ -13,8 +13,9 @@
 
   <div class="row">
     <div class="col-md-6">
-      <%= image_tag(@profile.avatar_url)%>
-      <%= f.file_field :img_dir %>
+      <%= image_tag(@profile.avatar_url, :class => "thumbnail, img-circle", :size => "100x100") if @profile.avatar? %>
+      <%= f.file_field :avatar  %>
+      <%= f.hidden_field :avatar_cache %>
     </div>
   </div>
 
