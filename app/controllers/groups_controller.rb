@@ -17,11 +17,14 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @users = User.all
-
+    @profiles = Profile.all.select(:id, :user_id, :avatar)
+    gon.profiles = @profiles
   end
 
   # GET /groups/1/edit
   def edit
+    @profiles = Profile.all.select(:id, :user_id, :avatar)
+    gon.profiles = @profiles
   end
 
   # POST /groups
@@ -73,4 +76,5 @@ class GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(:name,user_ids: [])
     end
+
 end

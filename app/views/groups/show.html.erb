@@ -2,14 +2,13 @@
 <h1><%= @group.name + ' members'%></h1>
 <div class="row">
   <div class="col-md-6">
-    <% @group.users.each do |member| %>
-      <tr>
-        <h3>Members</h3>
-        <div class="well">
-          <td><%= link_to member.email, rails_admin_path %></td>
-        </div>
-      </tr>
-    <% end %>
+    <h3>Members</h3>
+      <div class="well">
+        <% @group.users.each do |member| %>
+          <%= link_to member.email, rails_admin_path %>
+          <br>
+        <% end %>
+      </div>
   </div>
 </div>
 <br>

@@ -9,6 +9,8 @@ gem 'ckeditor'
 gem 'nprogress-rails'
 #ダイナミックなselect box select2
 gem 'select2-rails'
+#railsからjavascriptに値渡しするときに便利なツール
+gem 'gon'
 
 group :development do
   gem 'awesome_print'

@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= include_gon %>
 </head>
 <body>
 
@@ -15,7 +16,10 @@
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
-              <%= link_to 'SenseNote', notes_path %>
+            <%= link_to notes_path do %>
+                SenseNote
+                <%= image_tag(current_user_avatar.avatar_url, :class => "img-circle", :size => "60") %>
+              <% end %>
             </li>
             <li>
               <a href="#">Dashboard</a>
