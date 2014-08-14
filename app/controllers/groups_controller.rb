@@ -17,13 +17,13 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @users = User.all
-    @profiles = Profile.all.select(:id, :user_id, :avatar)
+    @profiles = Profile.all.select(:id, :user_id, :avatar, :name)
     gon.profiles = @profiles
   end
 
   # GET /groups/1/edit
   def edit
-    @profiles = Profile.all.select(:id, :user_id, :avatar)
+    @profiles = Profile.all.select(:id, :user_id, :avatar, :name)
     gon.profiles = @profiles
   end
 

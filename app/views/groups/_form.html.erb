@@ -8,7 +8,9 @@ function format(user) {
   }
 
   var avatar_path = gon.profiles[user_id].avatar.url;
-  return "<img class = 'avatar' src = " + avatar_path + " width='100' />" + user.text;
+  var profile_name = gon.profiles[user_id].name;
+  console.log(gon.profiles);
+  return "<img class = 'avatar' src = " + avatar_path + " width='100' />" + profile_name;
 }
 
 $(document).ready(function()
@@ -22,7 +24,7 @@ $(document).ready(function()
           }
         );
       }
-  );
+);
 </script>
 
 <%= form_for(@group) do |f| %>
@@ -49,9 +51,7 @@ $(document).ready(function()
   <div class="row">
     <div class="col-md-6">
       <h3><%= f.label :"グループメンバー" %></h3>
-      <% @users_array = User.find(1).profile.avatar_url %>
-
-      <% @options = User.all.collect{|u| [u.email, u.id]}; %>
+      <% @options = User.all.collect{|u| [Profile.find(u.id).name, u.id]}; %>
       <%= f.select :user_ids, @options, {}, multiple: true, class: "form-control" %>
 
     </div>

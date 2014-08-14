@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808102846) do
+ActiveRecord::Schema.define(version: 20140814040612) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 20140808102846) do
     t.string   "title"
     t.string   "body"
     t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes_groups", force: true do |t|
+    t.integer  "note_id"
+    t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
