@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
-<h1><%= @group.name + ' members'%></h1>
+<h1><%= @group.name %></h1>
 <div class="row">
   <div class="col-md-6">
     <h3>Members</h3>
       <div class="well">
         <% @group.users.each do |member| %>
-          <%= link_to member.email, rails_admin_path %>
+          <%= link_to member.email, profile_path(:id => member.id) %>
           <br>
         <% end %>
       </div>
