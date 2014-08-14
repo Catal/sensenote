@@ -12,6 +12,9 @@ class ProfilesController < ApplicationController
   def show
     @profile_id = Profile.find(params[:id]).id
     @groups = User.find(@profile_id).groups
+    #@group_ids = User.find(@profile_id).groups.select(:id)
+    #@notes = Group.find.all.notes
+
   end
 
   # GET /profiles/new
