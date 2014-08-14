@@ -17,9 +17,11 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
             <%= link_to notes_path do %>
-                SenseNote
+              SenseNote
+              <% if current_user_avatar.blank? == false %>
                 <%= image_tag(current_user_avatar.avatar_url, :class => "img-circle", :size => "60") %>
               <% end %>
+            <% end %>
             </li>
             <li>
               <a href="#">Dashboard</a>
