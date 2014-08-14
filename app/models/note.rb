@@ -1,4 +1,5 @@
 class Note < ActiveRecord::Base
+  has_many :groups, :through => :notes_groups
 
   def self.search(search)
     if search.blank?
