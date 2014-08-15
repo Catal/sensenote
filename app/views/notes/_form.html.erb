@@ -48,7 +48,7 @@ $(document).ready(function()
   <div class="row">
     <div class="col-md-12">
       <h3><%= f.label :グループ %></h3>
-      <% @options = Group.all.collect{|g| [g.name, g.id]}; %>
+      <% @options = User.find(current_user.id).groups.collect{|g| [g.name, g.id]}.insert(0, "ノートを作成するグループを選択してください") %>
       <%= f.select :group_ids, @options, {}, class: "form-control" %>
     </div>
   </div>

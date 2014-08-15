@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
 
   def current_user_avatar
-    @current_user_avatar = Profile.find(current_user.id)
+    if current_user?
+      @current_user_avatar = Profile.find(current_user.id)
+    end
   end
 end
