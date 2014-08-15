@@ -1,16 +1,31 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @group.name %></h1>
-<div class="row">
-  <div class="col-md-6">
-    <h3>Members</h3>
-      <div class="well">
-        <% @group.users.each do |member| %>
-          <%= link_to member.email, profile_path(:id => member.id) %>
-          <br>
+<div class = "row">
+  <div class = "col-md-4">
+    <div class = "panel panel-primary">
+      <div class = "panel-heading">ノート一覧</div>
+      <div class = "panel-body">
+        <% @group.notes.each do |note| %>
+          <%= link_to note.title, note_path(:id => note.id) %><br>
         <% end %>
       </div>
+    </div>
   </div>
 </div>
+
+<div class = "row">
+  <div class = "col-md-4">
+    <div class = "panel panel-primary">
+      <div class = "panel-heading">メンバー</div>
+      <div class = "panel-body">
+        <% @group.users.each do |user| %>
+          <%= link_to user.profile.name, profile_path(:id => user.id) %><br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <br>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

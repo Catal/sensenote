@@ -15,25 +15,10 @@
 <div class = "row">
   <div class = "col-md-4">
     <div class = "panel panel-primary">
-      <div class = "panel-heading">最近書いた議事録</div>
-      <div class = "panel-body">
-        <% @groups.each do |group| %>
-          <% group.notes.each do |note| %>
-            <%= note.title %><br>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class = "row">
-  <div class = "col-md-4">
-    <div class = "panel panel-primary">
       <div class = "panel-heading">所属グループ</div>
       <div class = "panel-body">
         <% @groups.each do |group| %>
-          <%= group.name %><br>
+          <%= link_to group.name, group_path(:id => group.id) %><br>
         <% end %>
       </div>
     </div>
