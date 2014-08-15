@@ -21,7 +21,7 @@
         <h3 class="panel-title"><%= note.title %></h3>
       </div>
       <div class="panel-body">
-        <td><%= raw(note.body) %></td>
+        <td><%= raw(note.body)[0,100] %></td>
       </div>
       <div class="panel-footer">
         <%= note.date.strftime('%Y-%m-%d %H:%M') %><br>
@@ -42,3 +42,9 @@
 </div>
 
 <p><%= link_to '新規作成', new_note_path, :class => "btn btn-primary" %></p>
+
+<% javascript_tag do %>
+$('#calendar').clndr({
+  template: $('#calendar-template').html()
+});
+<% end %>
