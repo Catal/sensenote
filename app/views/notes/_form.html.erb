@@ -1,3 +1,16 @@
+<script>
+$(document).ready(function()
+      {
+        $('#note_group_ids').select2(
+          {
+            minimumInputLength: 1,
+            placeholder: "グループを選択してください"
+          }
+        );
+      }
+);
+</script>
+
 <%= form_for(@note) do |f| %>
   <% if @note.errors.any? %>
     <div id="error_explanation">
@@ -28,10 +41,18 @@
   <div class="row">
     <div class="col-md-12">
       <h3><%= f.label :body %></h3><br>
-      <%# f.text_area :body %>
       <%= f.cktext_area :body %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3><%= f.label :グループ %></h3>
+      <% @options = Group.all.collect{|g| [g.name, g.id]}; %>
+      <%= f.select :group_ids, @options, {}, class: "form-control" %>
+    </div>
+  </div>
+
   <br>
   <div class="row">
     <div class="col-md-6">
