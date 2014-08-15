@@ -17,7 +17,11 @@
     <div class = "panel panel-primary">
       <div class = "panel-heading">最近書いた議事録</div>
       <div class = "panel-body">
-        <%= @profile.name %>
+        <% @groups.each do |group| %>
+          <% group.notes.each do |note| %>
+            <%= note.title %><br>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
