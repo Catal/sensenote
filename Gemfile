@@ -11,6 +11,8 @@ gem 'nprogress-rails'
 gem 'select2-rails'
 #railsからjavascriptに値渡しするときに便利なツール
 gem 'gon'
+#iconセット
+gem 'font-awesome-rails'
 
 group :development do
   gem 'awesome_print'

@@ -1,3 +1,20 @@
+<script>
+$(document).ready(function(){
+    var preview = $(".upload-preview img");
+
+    $(".file").change(function(event){
+    var input = $(event.currentTarget);
+    var file = input[0].files[0];
+    var reader = new FileReader();
+    reader.onload = function(e){
+      image_base64 = e.target.result;
+      preview.attr("src", image_base64);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+</script>
+
 <%= form_for(@profile) do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +29,19 @@
   <% end %>
 
   <div class="row">
+    <div class="col-md-8">
+      <div class="upload-preview">
+        <%= image_tag(@profile.avatar_url, :class => "thumbnail, center-block, img-circle", :size => "100x100") if @profile.avatar? %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-6">
-      <%= image_tag(@profile.avatar_url, :class => "thumbnail, img-circle", :size => "100x100") if @profile.avatar? %>
-      <%= f.file_field :avatar  %>
+      <%= f.file_field :avatar, :class => "file"  %>
       <%= f.hidden_field :avatar_cache %>
     </div>
   </div>
+
 
   <div class="row">
     <div class="col-md-6">

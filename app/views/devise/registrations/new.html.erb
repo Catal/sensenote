@@ -28,26 +28,6 @@
             </div>
 
 
-            <% @profile = Profile.new %>
-            <%= fields_for(@profile) do |c| %>
-              <div class="row form-group">
-                <%= c.label :"名前", class: "col-lg-3 control-label" %>
-                <div class="col-lg-9">
-                  <%= c.text_field :name, class: "col-lg-3 form-control" %>
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <%= c.label :"アバター選択", class: "col-lg-3 control-label" %>
-                <div class="col-lg-9">
-                  <%= image_tag(@profile.avatar_url, :class => "thumbnail, img-circle", :size => "100x100") if @profile.avatar? %>
-                  <%= c.file_field :avatar %>
-                  <%= c.hidden_field :avatar_cache %>
-                </div>
-              </div>
-            <% end %>
-
-
             <div class="row form-group">
               <div class="col-lg-9 col-lg-offset-3">
                 <%= f.submit "サインアップ", :class => "btn btn-primary" %>

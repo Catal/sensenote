@@ -10,6 +10,9 @@ public/uploads/ckeditor/*
 # Ignore avatar images
 public/uploads/profile/*
 
+# Ignore tmp images
+public/uploads/tmp/*
+
 # Ignore bundler config.
 /.bundle
 
