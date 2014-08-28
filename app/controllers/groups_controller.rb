@@ -11,6 +11,7 @@ class GroupsController < ApplicationController
   # GET /groups/1.json
   def show
     @group = Group.find(params[:id])
+    @panel = ["panel panel-primary", "panel panel-success", "panel panel-info", "panel panel-warning", "panel panel-danger", "panel panel-default"]
   end
 
   # GET /groups/new
