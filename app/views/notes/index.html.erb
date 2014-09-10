@@ -1,4 +1,39 @@
 <h1>Listing notes</h1>
+<script>
+window.onload = function() {
+    // Normalize the various vendor prefixed versions of getUserMedia.
+    navigator.getUserMedia = (navigator.getUserMedia ||
+                              navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia ||
+                              navigator.msGetUserMedia);
+    // Check that the browser supports getUserMedia.
+      // If it doesn't show an alert, otherwise continue.
+      if (navigator.getUserMedia) {
+          // Request the camera.
+          navigator.getUserMedia(
+                  // Constraints
+                  {
+                        video: true
+                            },
+
+                                // Success Callback
+                                function(localMediaStream) {
+
+                                    },
+
+                                        // Error Callback
+                                        function(err) {
+                                              // Log the error to the console.
+                                              console.log('The following error occurred when trying to use getUserMedia: ' + err);
+                                                  }
+                                                    );
+
+      } else {
+          alert('Sorry, your browser does not support getUserMedia');
+      }
+}
+</script>
+
 <div class="row">
   <%= form_tag notes_path, :method => 'get' do %>
       <div class="col-md-3">
@@ -18,10 +53,10 @@
   <div class="col-lg-2">
     <%= content_tag :div, class: @panel[num] do %>
       <div class="panel-heading">
-        <h3 class="panel-title"><%= note.title %></h3>
+        <h3 class="panel-title"><%= truncate(note.title.html_safe, length: 10) %></h3>
       </div>
       <div class="panel-body">
-        <td><%= raw(note.body)[0,100] %></td>
+        <td><%= truncate(note.body.gsub(/<("[^"]*"|'[^']*'|[^'">])*>/, ' '), length:10) %></td>
       </div>
       <div class="panel-footer">
         <%= note.date.strftime('%Y-%m-%d %H:%M') %><br>
@@ -30,7 +65,7 @@
         <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     <% end %>
-    <% 
+    <%
       if (num == 5) then
         num = 0
       else
