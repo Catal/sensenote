@@ -1,4 +1,12 @@
 ja:
+  activerecord:
+    models:
+      note: ノート
+    attributes:
+      note:
+        title: タイトル
+        body: 内容
+        date: 日時
   date:
     abbr_day_names:
     - 日
