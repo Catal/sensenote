@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'pusher'
 #画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'

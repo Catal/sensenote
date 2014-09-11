@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'notes/push'
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :notes
   root :to => 'notes#index'
