@@ -93,7 +93,7 @@ $(document).ready(function()
       $.ajax({
         type: "POST",
         url: "/notes/push",
-        data: "text="+(document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML),
+        data: "text="+escape(document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML),
         success: function() {},
       });
     });
