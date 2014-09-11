@@ -4,9 +4,13 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    #@notes = Note.all
-    @notes = Note.search(params[:search])
-    @panel = ["panel panel-primary", "panel panel-success", "panel panel-info", "panel panel-warning", "panel panel-danger", "panel panel-default"]
+    if User.find(current_user.id).profile.blank? == false
+      @notes = Note.search(params[:search])
+      @panel = ["panel panel-primary", "panel panel-success", "panel panel-info", "panel panel-warning", "panel panel-danger", "panel panel-default"]
+    else
+      redirect_to new_profile_path
+    end
+
   end
 
   # GET /notes/1

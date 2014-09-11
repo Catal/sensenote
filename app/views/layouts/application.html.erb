@@ -24,13 +24,24 @@
             <% end %>
             </li>
             <li>
+            <% if current_user.profile.blank? == false %>
+              <%= link_to profile_path(:id => current_user.profile.id) do %>
+                <%= fa_icon "user" %>
+                プロフィール
+              <% end %>
+            <% end %>
+            </li>
+            <li>
+              <%= link_to groups_path do %>
+                <%= fa_icon "group" %>
+                グループ
+              <% end %>
+            </li>
+            <li>
               <a href="#">Dashboard</a>
             </li>
             <li>
               <a href="#">Shortcuts</a>
-            </li>
-            <li>
-              <%= link_to 'Groups', groups_path %>
             </li>
             <li>
               <a href="#">Overview</a>
@@ -54,12 +65,11 @@
     <% end %>
 
     <div id="page-content-wrapper">
-      <!-- <p class="text-right"><a href="#" class="btn btn-default" id="menu-toggle">Toggle Menu</a></p>-->
-      <p class="text-right">
-        <button type="button" class="btn btn-default btn-lg" id="menu-toggle">
-          <span class="glyphicon glyphicon-list">
-        </button>
-      </p>
+      <% if user_signed_in? %>
+          <button type="button" class="btn btn-default btn-lg pull-right" id="menu-toggle">
+            <span class="glyphicon glyphicon-list">
+        </div>
+      <% end %>
       <div class="row">
         <div class="col-lg-6">
           <% if notice %>

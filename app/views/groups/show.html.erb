@@ -1,16 +1,60 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @group.name %></h1>
-<div class="row">
-  <div class="col-md-6">
-    <h3>Members</h3>
-      <div class="well">
-        <% @group.users.each do |member| %>
-          <%= link_to member.email, profile_path(:id => member.id) %>
-          <br>
+<div class = "row">
+
+<% num = 0 %>
+<div class="col-md-8">
+<% @group.notes.each do |note| %>
+  <div class="col-lg-3">
+    <%= content_tag :div, class: @panel[num] do %>
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= note.title %></h3>
+      </div>
+      <div class="panel-body">
+        <td><%= raw(note.body)[0,100] %></td>
+      </div>
+      <div class="panel-footer">
+        <%= note.date.strftime('%Y-%m-%d %H:%M') %><br>
+        <%= link_to 'Show', note %>
+        <%= link_to 'Edit', edit_note_path(note) %>
+        <%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+    <%
+      if (num == 5) then
+        num = 0
+      else
+        num = num + 1
+    %>
+    <% end %>
+  </div>
+<% end %>
+</div>
+  <div class = "col-md-1"></div>
+
+  <div class = "col-md-3">
+    <div class = "panel panel-primary">
+      <div class = "panel-heading"><%= fa_icon "book" %>ノート一覧<span class="badge"><%= @group.notes.count %></span></div>
+      <div class = "panel-body">
+        <% @group.notes.each do |note| %>
+          <%= link_to note.title, note_path(:id => note.id) %><br>
         <% end %>
       </div>
+    </div>
+    <div class = "panel panel-primary">
+      <div class = "panel-heading"><%= fa_icon "user" %>メンバー<span class="badge"><%= @group.users.count %></span></div>
+      <div class = "panel-body">
+        <% @group.users.each do |user| %>
+          <%= link_to user.profile.name, profile_path(:id => user.id) %><br>
+        <% end %>
+      </div>
+    </div>
   </div>
+
+
+
 </div>
+
 <br>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

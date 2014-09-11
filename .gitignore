@@ -4,11 +4,15 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+
 # Ignore pictures
 public/uploads/ckeditor/*
 
 # Ignore avatar images
 public/uploads/profile/*
+
+# Ignore tmp images
+public/uploads/tmp/*
 
 # Ignore bundler config.
 /.bundle

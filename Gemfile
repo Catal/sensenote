@@ -11,6 +11,8 @@ gem 'nprogress-rails'
 gem 'select2-rails'
 #railsからjavascriptに値渡しするときに便利なツール
 gem 'gon'
+#iconセット
+gem 'font-awesome-rails'
 
 group :development do
   gem 'awesome_print'
@@ -34,8 +36,15 @@ gem 'rails_admin'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
+# Use postgre as the database for heroku
+group :produciton do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :development, :test do
+  gem 'sqlite3'
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets

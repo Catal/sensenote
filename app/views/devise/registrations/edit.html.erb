@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>メールアドレス＆パスワード変更</h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <div class="row well col-md-6">
     <%= devise_error_messages! %>
@@ -41,10 +41,9 @@
 <% end %>
 
 <h3>アカウント管理</h3>
-<div class="row well">
+<div class="row">
   <div class="col-md-9">
-
-    <%= button_to "アカウント消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
+    <%= button_to "アカウント消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
   </div>
 </div>
 <%= link_to "Back", :back %>

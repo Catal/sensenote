@@ -10,11 +10,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @profile_id = Profile.find(params[:id]).id
-    @groups = User.find(@profile_id).groups
-    #@group_ids = User.find(@profile_id).groups.select(:id)
-    #@notes = Group.find.all.notes
-
+    @user_id = User.find(current_user.id).profile.user_id
+    @groups = User.find(@user_id).groups
   end
 
   # GET /profiles/new
