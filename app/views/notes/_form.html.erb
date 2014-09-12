@@ -70,7 +70,7 @@ $(document).ready(function()
 
     channel.bind('my_event', function(data) {
       //document.getElementById("note_title").value = data;
-      document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML = data;
+      document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML = decodeURIComponent(data);
 
       var ifr = document.getElementsByTagName('iframe')[0];
       var idoc = ifr.contentDocument;
@@ -106,7 +106,7 @@ $(document).ready(function()
         $.ajax({
           type: "POST",
           url: "/notes/push",
-          data: "text="+escape(document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML.to_s.toutf8),
+          data: "text="+escape(encodeURIComponent(document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML)),
           success: function() {}
         });
       //i=0;
