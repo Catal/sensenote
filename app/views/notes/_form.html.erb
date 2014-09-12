@@ -67,6 +67,7 @@ $(document).ready(function()
 
     var pusher = new Pusher('be77e6f1a3890641c69f');
     var channel = pusher.subscribe('test_channel');
+    
     channel.bind('my_event', function(data) {
       //document.getElementById("note_title").value = data;
       document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML = data;
@@ -83,16 +84,17 @@ $(document).ready(function()
       sel.addRange(range);
     });
 
-  $(function(){
-    var pusher  = new Pusher("<%= 'pusher-key' %>");
-    var channel = pusher.subscribe("test_channel");
-    channel.bind("my_event", function(html) {
-      $("ul").prepend(html);
-    });
-  });
+  // $(function(){
+  //   var pusher  = new Pusher("<%= 'pusher-key' %>");
+  //   var channel = pusher.subscribe("test_channel");
+  //   channel.bind("my_event", function(html) {
+  //     $("ul").prepend(html);
+  //   });
+  // });
 
   //var i = 0;
   $(document).ready(function(){
+
     CKEDITOR.instances['note_body'].on('contentDom', function() {
       CKEDITOR.instances['note_body'].document.on('keyup', function(e) {
       //$("#note_title").click(function(){

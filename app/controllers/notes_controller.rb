@@ -2,7 +2,6 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def push 
-    #Pusher["test_channel"].trigger("my_event", params[:text]+"<br />")
     Pusher["test_channel"].trigger("my_event", params[:text])
     render :text => "success"
   end
