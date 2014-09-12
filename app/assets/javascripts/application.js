@@ -20,4 +20,3 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require select2
-//= require clndr.min

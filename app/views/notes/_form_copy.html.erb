@@ -79,11 +79,11 @@ $(document).ready(function()
       
       var sel = idoc.getSelection();
       var range = sel.getRangeAt(0);
-      range.setStart(ibody, 1);
-      range.setEnd(ibody, 1);
+      range.setStart(ibody, 2);
+      range.setEnd(ibody, 2);
       sel.removeAllRanges();
       sel.addRange(range);
-    });
+      
   </script>
 </head>
 <script type="text/javascript">
@@ -95,24 +95,20 @@ $(document).ready(function()
     });
   });
 
-    //var i = 0;
     //$(document).ready(function(){
       CKEDITOR.instances['note_body'].on('contentDom', function() {
-        CKEDITOR.instances['note_body'].document.on('keyup', function(e) {
+        CKEDITOR.instances['note_body'].document.on('click', function(e) {
+        //$("#post").click(function(){
         //$("#note_title").click(function(){
-        console.log(e.data.getKey());
-        //i++;
-        //if(i > 30){
-        //command key = 91 esc ==27
-        if(e.data.getKey() == 27){
+        //console.log(e.data.getKey());
+        //if(e.data.getKey() == 91){
           $.ajax({
             type: "POST",
             url: "/notes/push",
             data: "text="+escape(document.getElementsByTagName('iframe')[0].contentWindow.document.body.innerHTML),
             success: function() {}
           });
-        //i=0;
-        }
+        //}
       });
     }); 
   </script>
