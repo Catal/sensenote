@@ -1,4 +1,5 @@
-CKEDITOR.config.filebrowserUploadUrl = '/uploaders/ckeditor_picture_uploader';
+CKEDITOR.config.filebrowserUploadUrl = '/ckeditor/pictures';
+CKEDITOR.config.filebrowserImageBrowseUrl = '/ckeditor/pictures';
 CKEDITOR.config.toolbar = [
   { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
   { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
