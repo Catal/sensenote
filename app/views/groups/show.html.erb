@@ -39,6 +39,8 @@
         <% @group.notes.each do |note| %>
           <%= link_to note.title, note_path(:id => note.id) %><br>
         <% end %>
+        <hr>
+        <%= link_to '新規作成', new_note_path %>
       </div>
     </div>
     <div class = "panel panel-primary">
@@ -47,6 +49,8 @@
         <% @group.users.each do |user| %>
           <%= link_to user.profile.name, profile_path(:id => user.id) %><br>
         <% end %>
+        <hr>
+        <%= link_to "メンバー編集", edit_group_path %>
       </div>
     </div>
   </div>
