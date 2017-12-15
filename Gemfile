@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.10'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -19,19 +17,19 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'devise'
-gem 'execjs'
 gem 'font-awesome-rails'
 gem 'gon'
-gem 'less-rails'
 gem 'mini_magick'
 gem 'nprogress-rails'
 gem 'pusher'
+gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
-gem 'twitter-bootswatch-rails', '~> 3.3.4'
-gem 'twitter-bootswatch-rails-helpers'
 
 group :produciton do
   gem 'pg'

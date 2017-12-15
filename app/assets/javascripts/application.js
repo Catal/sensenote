@@ -13,10 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
-//= require lumen/loader
-//= require lumen/bootswatch
-//= require bootstrap
 //= require turbolinks
 //= require nprogress
 //= require nprogress-turbolinks
 //= require select2
+//= require bootstrap-sprockets

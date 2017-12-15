@@ -12,8 +12,6 @@
  *
  *
  *= require_self
- *= require lumen/loader
- *= require lumen/bootswatch
  *= require sidebar
  *= require custom
  *= require nprogress
@@ -22,3 +20,7 @@
  *= require select2-bootstrap
  *= require font-awesome
  */
+@import "bootstrap-sprockets";
+@import "bootswatch/lumen/variables";
+@import "bootstrap";
+@import "bootswatch/lumen/bootswatch";
