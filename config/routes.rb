@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
-  post 'notes/push'
 
   mount Ckeditor::Engine => '/ckeditor'
-  resources :notes
-  root :to => 'notes#index'
-  devise_for :admin_users
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+
   resources :groups
+  resources :notes
+  post 'notes/push'
   resources :profiles
+
+  devise_for :users
+  devise_for :admin_users
+
+  root to: 'notes#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
