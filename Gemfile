@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.5.0'
 gem 'rails', '4.2.10'
 
 # Use Uglifier as compressor for JavaScript assets
