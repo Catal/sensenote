@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140912081642) do
 
-  create_table "admin_users", force: true do |t|
+  create_table "admin_users", force: :cascade do |t|
     t.string   "email",               default: "", null: false
     t.string   "encrypted_password",  default: "", null: false
     t.datetime "remember_created_at"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140912081642) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
 
-  create_table "ckeditor_assets", force: true do |t|
+  create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
     t.integer  "data_file_size"
@@ -44,28 +44,28 @@ ActiveRecord::Schema.define(version: 20140912081642) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
-  create_table "groups", force: true do |t|
+  create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes", force: true do |t|
+  create_table "notes", force: :cascade do |t|
     t.string   "title"
-    t.text     "body",       limit: 255, default: "0", null: false
+    t.text     "body",       default: "0", null: false
     t.datetime "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "notes_groups", force: true do |t|
+  create_table "notes_groups", force: :cascade do |t|
     t.integer  "note_id"
     t.integer  "group_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "profiles", force: true do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "avatar"
     t.integer  "user_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140912081642) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140912081642) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "users_groups", force: true do |t|
+  create_table "users_groups", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"
     t.datetime "created_at"
